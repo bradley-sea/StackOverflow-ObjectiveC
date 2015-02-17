@@ -22,6 +22,7 @@
 		A2B2A1A91A905C87001E518F /* StackOverflowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B2A1A81A905C87001E518F /* StackOverflowTests.m */; };
 		A2B2A1B41A905CAE001E518F /* BurgerContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B2A1B31A905CAE001E518F /* BurgerContainerViewController.m */; };
 		A2B2A1B81A907A89001E518F /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B2A1B71A907A89001E518F /* MenuViewController.m */; };
+		A2F0029A1A92FE5A001C03B5 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F002991A92FE5A001C03B5 /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		A2B2A1B51A90799C001E518F /* MenuDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuDelegate.h; path = ../MenuDelegate.h; sourceTree = "<group>"; };
 		A2B2A1B61A907A89001E518F /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = ../MenuViewController.h; sourceTree = "<group>"; };
 		A2B2A1B71A907A89001E518F /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = ../MenuViewController.m; sourceTree = "<group>"; };
+		A2F002981A92FE5A001C03B5 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		A2F002991A92FE5A001C03B5 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 				A2482CFF1A91586800F890BB /* Question.m */,
 				A2B2A1B21A905CAE001E518F /* BurgerContainerViewController.h */,
 				A2B2A1B31A905CAE001E518F /* BurgerContainerViewController.m */,
+				A2F002981A92FE5A001C03B5 /* ProfileViewController.h */,
+				A2F002991A92FE5A001C03B5 /* ProfileViewController.m */,
 				A2482CFB1A91553700F890BB /* StackOverflowService.h */,
 				A2482CFC1A91553700F890BB /* StackOverflowService.m */,
 				A2482D041A915A5F00F890BB /* SearchQuestionsViewController.h */,
@@ -269,6 +274,7 @@
 				A2B2A1921A905C87001E518F /* StackOverflow.xcdatamodeld in Sources */,
 				A2482D001A91586800F890BB /* Question.m in Sources */,
 				A2B2A1951A905C87001E518F /* ViewController.m in Sources */,
+				A2F0029A1A92FE5A001C03B5 /* ProfileViewController.m in Sources */,
 				A2B2A18C1A905C87001E518F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

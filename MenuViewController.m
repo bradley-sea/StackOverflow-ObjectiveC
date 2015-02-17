@@ -40,6 +40,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   [self.delegate menuOptionPressed:indexPath.row];
+  [self.tableView deselectRowAtIndexPath:indexPath animated:true];
 }
 
 @end

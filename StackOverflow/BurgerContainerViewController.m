@@ -9,6 +9,7 @@
 #import "BurgerContainerViewController.h"
 #import "MenuViewController.h"
 #import "MenuDelegate.h"
+#import "ProfileViewController.h"
 
 @interface BurgerContainerViewController () <MenuDelegate>
 
@@ -17,6 +18,8 @@
 @property (strong,nonatomic) UITapGestureRecognizer *tapToCloseRecognizer;
 @property (strong,nonatomic) UIPanGestureRecognizer *slideRecognizer;
 @property (strong,nonatomic) UINavigationController *searchVC;
+@property (strong,nonatomic) ProfileViewController *profileVC;
+@property (nonatomic) NSInteger selectedRow;
 
 @end
 
@@ -30,6 +33,7 @@
   [self.view addSubview:self.searchVC.view];
   [self.searchVC didMoveToParentViewController:self];
   self.currentVC = self.searchVC;
+  self.selectedRow = 0;
   UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(15, 15, 50, 50) ];
   [button setBackgroundImage:[UIImage imageNamed:@"burger"] forState:UIControlStateNormal];
   [self.currentVC.view addSubview:button];
@@ -121,8 +125,59 @@
   }
 }
 
+-(void)switchToViewController:(UIViewController *)destinationVC {
+  
+  [UIView animateWithDuration:0.2 animations:^{
+    
+    self.currentVC.view.frame = CGRectMake(self.currentVC.view.frame.size.width, self.currentVC.view.frame.origin.y, self.currentVC.view.frame.size.width, self.currentVC.view.frame.size.height);
+    
+  } completion:^(BOOL finished) {
+    
+    destinationVC.view.frame = self.currentVC.view.frame;
+    
+    [self.currentVC.view removeGestureRecognizer:self.slideRecognizer];
+    [self.burgerButton removeFromSuperview];
+    [self.currentVC willMoveToParentViewController:nil];
+    [self.currentVC.view removeFromSuperview];
+    [self.currentVC removeFromParentViewController];
+    
+    self.currentVC = destinationVC;
+    
+    [self addChildViewController:self.currentVC];
+    [self.view addSubview:self.currentVC.view];
+    [self.currentVC didMoveToParentViewController:self];
+    [self.currentVC.view addSubview:self.burgerButton];
+    [self.currentVC.view addGestureRecognizer:self.slideRecognizer];
+    
+    [self tapToClose];
+  }];
+  
+  
+}
+
 -(void)menuOptionPressed:(NSInteger)optionRow {
   NSLog(@"%ld",(long)optionRow);
+  if (self.selectedRow == optionRow) {
+    [self tapToClose];
+  } else {
+    self.selectedRow = optionRow;
+    UIViewController *destinationVC;
+    
+    switch (self.selectedRow) {
+      case 0:
+        destinationVC = self.searchVC;
+        break;
+      case 1:
+        break;
+      case 2:
+        destinationVC = self.profileVC;
+        break;
+      default:
+        break;
+    }
+    
+    [self switchToViewController:destinationVC];
+  }
 }
 
 -(UINavigationController *)searchVC {
@@ -130,6 +185,13 @@
   _searchVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SEARCH_VC"];
   }
   return _searchVC;
+}
+
+-(ProfileViewController *)profileVC {
+  if (!_profileVC) {
+    _profileVC = [[ProfileViewController alloc] init];
+  }
+  return _profileVC;
 }
 
 @end
